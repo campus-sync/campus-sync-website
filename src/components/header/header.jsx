@@ -9,6 +9,7 @@ export default function Header() {
           alt="logo"
         />
         <div className={styles.header_title}>CampusSync</div>
+        <button className={styles.logout}>Log Out</button>
       </div>
     </>
   );
