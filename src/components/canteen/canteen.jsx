@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { GetRequest } from "../../util/axios-requests/get-request";
 import { GetTokenCookie, GetUserCookie } from "../../util/auth/cookies";
+
 export default function Canteen() {
   const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

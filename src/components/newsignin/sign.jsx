@@ -9,16 +9,12 @@ import {
 } from "@mui/material";
 import styles from "./sign.module.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import {
   GetRefreshTokenCookie,
   GetTokenCookie,
   GetUserCookie,
-  SaveRefreshTokenCookie,
-  SaveTokenCookie,
-  SaveUserCookie,
 } from "../../util/auth/cookies";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RefreshUser, SaveUserData } from "../../util/auth/user-utils";
 import { PostRequest } from "../../util/axios-requests/post-request";
 

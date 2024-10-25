@@ -1,5 +1,19 @@
+import { useEffect } from "react";
 import styles from "./header.module.css";
+import { GetTokenCookie, GetUserCookie } from "../../util/auth/cookies";
+import { useNavigate } from "react-router-dom";
 export default function Header() {
+  const router = useNavigate();
+
+  useEffect(() => {
+    const user = GetUserCookie();
+    const accessToken = GetTokenCookie();
+
+    if (!user || !accessToken) {
+      return router("/");
+    }
+  });
+
   return (
     <>
       <div className={styles.header}>
