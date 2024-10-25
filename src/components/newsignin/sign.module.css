@@ -24,7 +24,7 @@
 
 .logo {
   width: 400px;
-  height: 300px;
+  height: auto;
 }
 
 .main h1 {
@@ -38,5 +38,10 @@
 @media (max-width: 600px) {
   .signin_container {
     width: 400px;
+  }
+
+  .logo {
+    width: 300px;
+    height: 200px;
   }
 }
