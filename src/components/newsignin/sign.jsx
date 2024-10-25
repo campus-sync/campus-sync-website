@@ -20,6 +20,7 @@ import {
 } from "../../util/auth/cookies";
 import { Navigate, useNavigate } from "react-router-dom";
 import { RefreshUser, SaveUserData } from "../../util/auth/user-utils";
+import { PostRequest } from "../../util/axios-requests/post-request";
 
 export default function Signin() {
   const router = useNavigate();
@@ -78,25 +79,17 @@ export default function Signin() {
     };
 
     const endpoint = `${import.meta.env.VITE_API_URL}/auth/login`;
+    const headers = {
+      "x-api-key": import.meta.env.VITE_API_KEY,
+      "x-account-type": accountType,
+    };
 
     try {
-      const response = await axios.post(endpoint, reqBody, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-          "x-account-type": accountType,
-        },
-        validateStatus: function (status) {
-          return status < 500; // Resolve only if the status code is less than 500
-        },
-      });
+      const response = await PostRequest(endpoint, reqBody, headers);
 
-      const resData = response.data;
-      if (resData.success) {
-        SaveUserData(
-          resData.data.user,
-          resData.data.access_token,
-          resData.data.refresh_token
-        );
+      const data = response.data;
+      if (response.success) {
+        SaveUserData(data.user, data.access_token, data.refresh_token);
 
         router("/vendor");
       }

@@ -38,7 +38,6 @@
   display: flex;
   align-items: center;
   margin: 10px; /* Space around each item */
-  width: calc(33.33% - 20px); /* 3 items per row with margin adjustment */
   box-sizing: border-box; /* Include padding and margin in width */
   background-color: #fff;
   padding: 15px;
