@@ -2,7 +2,7 @@
   width: 100%;
   height: 10%;
   background-color: #f9ebf6;
-  position: fixed;
+  /* position: fixed; */
   display: flex;
   flex-direction: row;
   padding-left: 3%;

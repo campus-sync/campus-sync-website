@@ -1,0 +1,97 @@
+.menu_container {
+  max-width: 1200px;
+  /* margin: 20px auto; */
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  margin-left: 130px;
+  margin-top: 20px;
+
+  /* text-align: center; */
+}
+.main_head {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 40px;
+  /* margin-top: 100px; */
+}
+.menu_section {
+  margin-bottom: 20px;
+}
+.menu_section h2 {
+  text-align: left;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  color: #000;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.menu_items {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: space-between; /* Distribute items evenly */
+  padding: 10px 0;
+}
+.menu_item {
+  display: flex;
+  align-items: center;
+  margin: 10px; /* Space around each item */
+  width: calc(33.33% - 20px); /* 3 items per row with margin adjustment */
+  box-sizing: border-box; /* Include padding and margin in width */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #99eeff;
+}
+.menu_item img {
+  width: 120px; /* Increase image width */
+  height: 100px; /* Increase image height */
+  border-radius: 8px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+.item_info {
+  flex-grow: 1;
+}
+.item_info h3 {
+  margin: 0 0 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #011112;
+}
+.price {
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu_item {
+    width: calc(50% - 20px); /* 2 items per row on smaller screens */
+  }
+}
+@media (max-width: 480px) {
+  .menu_item {
+    width: 100%; /* 1 item per row on very small screens */
+  }
+  .menu_item img {
+    width: 100px; /* Adjust image size for smaller screens */
+    height: 80px;
+  }
+}
+
+.menu_item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-info p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
