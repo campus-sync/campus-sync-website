@@ -6,14 +6,19 @@ import "./App.css";
 import Vendor from "./components/vendor/vendor";
 import Canteen from "./components/canteen/canteen";
 import Signin from "./components/newsignin/sign";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <Signin />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Signin />} />
+        <Route path="/vendor" element={<Vendor />} />
+        <Route path="/canteen" element={<Canteen />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
