@@ -22,6 +22,7 @@ import VendorView from "./components/vendor/vendor-view";
 import Notifications from "./components/menu/notifications";
 import Calendar from "./components/calendar/calendar";
 import TeacherView from "./components/teacher/teacherview";
+import Learning from "./components/teacher/learning_materials";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
     // </BrowserRouter>
     // <Calendar />
     // <Admin />
-    <TeacherView />
+    <Learning />
   );
 }
 
