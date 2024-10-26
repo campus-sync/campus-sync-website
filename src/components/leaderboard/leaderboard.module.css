@@ -1,3 +1,10 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  /* padding: 20px; */
+}
+
 .container {
   max-width: 800px;
   margin: auto;
@@ -7,9 +14,10 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container h1 {
+.conatiner h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .container table {
@@ -30,20 +38,17 @@ td {
   text-align: center;
 }
 
-.container table th {
+.conatiner table th {
   background-color: #4caf50;
   color: white;
 }
 
-.container table tr:nth-child(even) {
+.conatiner table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.rank-crown {
-  width: 20px;
-  height: 20px;
-  margin-left: 5px;
-  vertical-align: middle;
+.top3 {
+  color: gold;
 }
 
 .crown {
@@ -53,8 +58,4 @@ td {
   height: 20px;
   background-size: cover;
   vertical-align: middle;
-}
-
-.top3 {
-  color: gold;
 }

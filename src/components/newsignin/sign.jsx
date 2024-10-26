@@ -75,6 +75,8 @@ export default function Signin() {
     };
 
     const endpoint = `${import.meta.env.VITE_API_URL}/auth/login`;
+    console.log("Endpoint - ", endpoint);
+
     const headers = {
       "x-api-key": import.meta.env.VITE_API_KEY,
       "x-account-type": accountType,

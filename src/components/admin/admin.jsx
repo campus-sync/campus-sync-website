@@ -20,7 +20,7 @@ export default function Admin() {
                 Vidya Vikas Institute of Engineering
               </div>
               <div className={styles.college_name}>Sharanya</div>
-              <div classname={styles.college_name}>fjrjfnfjrj</div>
+              <div className={styles.college_name}>fjrjfnfjrj</div>
             </div>
           </section>
           <section className={styles.add_container}>

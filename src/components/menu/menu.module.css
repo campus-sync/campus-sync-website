@@ -1,0 +1,75 @@
+/* Container for menu icon */
+/* .sidebarContainer {
+  position: relative;
+} */
+
+/* Menu icon styles */
+.menuIcon {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 350px;
+  background-color: #99eeff;
+  color: white;
+  transition: transform 0.3s ease;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Close icon styles */
+.closeIcon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Sidebar nav styles */
+.sidebarNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarNav ul li {
+  padding: 15px;
+  border-bottom: 1px solid #555;
+}
+
+.sidebarNav ul li a {
+  color: #011112;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.sidebarNav ul li a:hover {
+  background-color: #fc9cae;
+  color: black;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
