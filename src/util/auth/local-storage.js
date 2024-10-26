@@ -5,3 +5,7 @@ export const SaveUserLocalStorage = (user) => {
 export const GetUserLocalStorage = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
+
+export const DeleteUserLocalStorage = () => {
+  localStorage.removeItem("user");
+};
