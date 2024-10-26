@@ -1,7 +1,43 @@
 import styles from "./vendor.module.css";
 import Header from "../header/header";
+import { useEffect, useState } from "react";
+import { GetTokenCookie, GetUserCookie } from "../../util/auth/cookies";
+import { useNavigate } from "react-router-dom";
+import { GetRequest } from "../../util/axios-requests/get-request";
 
 export default function Vendor() {
+  const [vendors, setVendors] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const router = useNavigate();
+
+  useEffect(() => {
+    setIsMounted(true);
+    if (!isMounted) return;
+
+    setIsLoading(true);
+    const user = GetUserCookie();
+    const token = GetTokenCookie();
+
+    if (!user || !token) return router("/");
+
+    const endpoint = `${import.meta.env.VITE_API_URL}/user/list/vendor`;
+    const headers = {
+      "x-account-type": user.account_type,
+      "x-account-id": user.id,
+      "x-access-token": token,
+    };
+
+    GetRequest(endpoint, headers).then((response) => {
+      console.log(response);
+
+      if (!response.success) return;
+      setVendors(response.data.items);
+      setIsLoading(false);
+    });
+  }, [isMounted, router]);
+
   return (
     <>
       <Header />
@@ -20,63 +56,29 @@ export default function Vendor() {
           <p>Register Vendor</p>
         </div>
         <div className={styles.vendor_grid}>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Interactive Learning</div>
-            <img src="src\assets\game.jpg" alt="Vendor 1" />
-            <h3>Vendor Name 1</h3>
-            <p>
-              Specialized in interactive learning tools and assessment tracking.
-            </p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Course Management</div>
-            <img src="src\assets\gamification.png" alt="Vendor 2" />
-            <h3>Vendor Name 2</h3>
-            <p>
-              Offers a seamless integration of course content and user
-              management.
-            </p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Analytics</div>
-            <img src="src\assets\gamification.png" alt="Vendor 3" />
-            <h3>Vendor Name 3</h3>
-            <p>
-              Known for extensive analytics and student engagement features.
-            </p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Personalization</div>
-            <img src="src\assets\gamification.png" alt="Vendor 4" />
-            <h3>Vendor Name 4</h3>
-            <p>Provides personalized learning paths and curriculum mapping.</p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Data Security</div>
-            <img src="src\assets\gamification.png" alt="Vendor 5" />
-            <h3>Vendor Name 5</h3>
-            <p>Offers robust data privacy and secure student records.</p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Gamification</div>
-            <img src="src\assets\gamification.png" alt="Vendor 6" />
-            <h3>Vendor Name 6</h3>
-            <p>Integrates gamification to increase student motivation.</p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>Blended Learning</div>
-            <img src="src\assets\gamification.png" alt="Vendor 7" />
-            <h3>Vendor Name 7</h3>
-            <p>Specialized in blended learning and course customization.</p>
-          </div>
-          <div className={styles.vendor_card}>
-            <div className={styles.category}>AI Insights</div>
-            <img src="src\assets\gamification.png" alt="Vendor 8" />
-            <h3>Vendor Name 8</h3>
-            <p>
-              Features AI-driven insights for personalized learning experiences.
-            </p>
-          </div>
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : vendors.length > 0 ? (
+            vendors.map((vendor) => (
+              <div
+                className={styles.vendor_card}
+                key={vendor.id}
+                id={vendor.id}
+                onClick={() => {
+                  return router(`/vendor/${vendor.id}`);
+                }}
+              >
+                <div className={styles.category}>
+                  {vendor.description?.split(" ")[0]}
+                </div>
+                <img src={vendor.photo} alt={`Vendor ${vendor.name}`} />
+                <h3>{vendor.name}</h3>
+                <p>{vendor.description}</p>
+              </div>
+            ))
+          ) : (
+            <p>No vendors found.</p>
+          )}
         </div>
       </section>
     </>

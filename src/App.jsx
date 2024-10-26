@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 // import Test from "./components/test";
 // import Test2 from "./components/test2";
@@ -19,34 +18,20 @@ import StudentEnrol from "./components/menu/studentenrol";
 // import StudentRegistration from "./StudentRegistration";
 // import Calendar from "./Calendar";
 // import RewardCredits from "./RewardCredits";
+import VendorView from "./components/vendor/vendor-view";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<StudentEnrol />} />
+        <Route path="/" element={<Signin />} />
         <Route path="/vendor" element={<Vendor />} />
         <Route path="/canteen" element={<Canteen />} />
+        <Route path="/vendor/:id" element={<VendorView />} />
       </Routes>
     </BrowserRouter>
-
-    // <Router>
-    //   <Sidebar />
-    //   <div className="content">
-    //     <Routes>
-    //       <Route path="/class-registration" element={<ClassRegistration />} />
-    //       <Route path="/subject-allotment" element={<SubjectAllotment />} />
-    //       <Route
-    //         path="/student-registration"
-    //         element={<StudentRegistration />}
-    //       />
-    //       <Route path="/calendar" element={<Calendar />} />
-    //       <Route path="/reward-credits" element={<RewardCredits />} />
-    //     </Routes>
-    //   </div>
-    // </Router>
+    // <Calendar />
+    // <Admin />
   );
 }
 
