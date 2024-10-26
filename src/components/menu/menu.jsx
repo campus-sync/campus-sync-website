@@ -50,16 +50,22 @@ const SidebarMenu = () => {
             <nav className={styles.sidebarNav}>
               <ul>
                 <li>
-                  <a href="#home">Home</a>
+                  <a href="#home">Class Registration</a>
                 </li>
                 <li>
-                  <a href="#about">About</a>
+                  <a href="#about">Subject Allotment</a>
                 </li>
                 <li>
-                  <a href="#services">Services</a>
+                  <a href="#services">Student Registration</a>
                 </li>
                 <li>
-                  <a href="#contact">Contact</a>
+                  <a href="#contact">Calendar</a>
+                </li>
+                <li>
+                  <a href="#contact">Reward Credits</a>
+                </li>
+                <li>
+                  <a href="#contact">Notifications</a>
                 </li>
               </ul>
             </nav>

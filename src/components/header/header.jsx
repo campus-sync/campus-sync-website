@@ -3,6 +3,7 @@ import styles from "./header.module.css";
 import { GetTokenCookie, GetUserCookie } from "../../util/auth/cookies";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/CampusSync-Logo.png";
+import Menu from "../menu/menu";
 
 export default function Header() {
   const router = useNavigate();
@@ -19,7 +20,7 @@ export default function Header() {
   return (
     <>
       <div className={styles.header}>
-        <div></div>
+        <Menu />
         <div className={styles.header_logo_title}>
           <img src={logo} className={styles.header_logo} alt="logo" />
           <div className={styles.header_title}>CampusSync</div>

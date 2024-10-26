@@ -30,6 +30,7 @@ export default function Admin() {
                 Save
               </Button>
             </div>
+
             <div className={styles.label}>Enter College Name</div>
             <input
               type="text"
