@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 // import Test from "./components/test";
 // import Test2 from "./components/test2";
@@ -9,19 +8,19 @@ import Signin from "./components/newsignin/sign";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Calendar from "./components/calendar/hitCalendar";
 import Admin from "./components/admin/admin";
+import VendorView from "./components/vendor/vendor-view";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<Calendar />} />
-    //     <Route path="/vendor" element={<Vendor />} />
-    //     <Route path="/canteen" element={<Canteen />} />
-    //   </Routes>
-    // </BrowserRouter>
-    <Calendar />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Signin />} />
+        <Route path="/vendor" element={<Vendor />} />
+        <Route path="/canteen" element={<Canteen />} />
+        <Route path="/vendor/:id" element={<VendorView />} />
+      </Routes>
+    </BrowserRouter>
+    // <Calendar />
     // <Admin />
   );
 }

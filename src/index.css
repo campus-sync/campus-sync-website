@@ -17,4 +17,9 @@
 
 body {
   font-size: 10px;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
 }

@@ -32,7 +32,7 @@
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
-  max-width: 400px;
+  width: 100%;
   margin: 0 auto;
   padding: 1.5em;
   position: relative;
@@ -81,7 +81,7 @@
   background-color: #3db9c7;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 5px;
   max-width: 1200px;
   width: 100%;
   font-size: 19px;
@@ -90,6 +90,8 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   height: 60px;
   color: rgb(63, 63, 63);
+
+  padding: 1rem 0;
 }
 
 .upload p {
