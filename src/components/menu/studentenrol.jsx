@@ -8,6 +8,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import Header from "../header/header";
 export default function StudentEnrol() {
   const [selectedClass, setSelectedClass] = useState("");
 
@@ -18,6 +19,7 @@ export default function StudentEnrol() {
   return (
     <>
       {/* <Menu /> */}
+      <Header />
       <div className={styles.container}>
         <div className={styles.heading}>Student Enrollment Details</div>
         <div className={styles.flex_container}>

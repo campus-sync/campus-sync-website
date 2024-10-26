@@ -52,6 +52,10 @@ export default function Header() {
           name: "Vendors",
           url: "/vendor",
         },
+        {
+          name: "Student Enrol",
+          url: "/studentenrol",
+        },
       ]);
     }
   }, [router]);
@@ -62,7 +66,6 @@ export default function Header() {
         <div>
           <SidebarMenu links={links} />
         </div>
-        <Menu />
         <div className={styles.header_logo_title}>
           <img src={logo} className={styles.header_logo} alt="logo" />
           <div className={styles.header_title}>CampusSync</div>

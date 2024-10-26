@@ -20,22 +20,25 @@ import StudentEnrol from "./components/menu/studentenrol";
 // import RewardCredits from "./RewardCredits";
 import VendorView from "./components/vendor/vendor-view";
 import Notifications from "./components/menu/notifications";
-import Calendar from "./components/calendar/calendar";
 import TeacherView from "./components/teacher/teacherview";
+import Calendar from "./components/calendar/calendar";
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<StudentEnrol />} />
-    //     <Route path="/vendor" element={<Vendor />} />
-    //     <Route path="/canteen" element={<Canteen />} />
-    //     <Route path="/vendor/:id" element={<VendorView />} />
-    //   </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Signin />} />
+        <Route path="/vendor" element={<Vendor />} />
+        <Route path="/canteen" element={<Canteen />} />
+        <Route path="/vendor/:id" element={<VendorView />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/studentenrol" element={<StudentEnrol />} />
+        <Route path="/calendar" element={<Calendar />} />
+      </Routes>
+    </BrowserRouter>
     // <Calendar />
     // <Admin />
-    <TeacherView />
+    // <TeacherView />
   );
 }
 

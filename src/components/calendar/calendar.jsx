@@ -1,13 +1,14 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, getJson, setOptions, Toast } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Header from "../header/header";
 
 setOptions({
   theme: "ios",
   themeVariant: "light",
 });
 
-function App() {
+export default function Calendar() {
   const [myEvents, setEvents] = useState([]);
   const [isToastOpen, setToastOpen] = useState(false);
   const [toastText, setToastText] = useState();
@@ -19,9 +20,29 @@ function App() {
   const handleEventClick = useCallback((args) => {
     setToastText(args.event.title);
     setToastOpen(true);
+
+    console.log(args.event);
   }, []);
 
   const myView = useMemo(() => ({ calendar: { labels: true } }), []);
+  const myResponsive = useMemo(
+    () => ({
+      xsmall: {
+        view: {
+          calendar: { type: "week" },
+          agenda: { type: "day" },
+        },
+      },
+      custom: {
+        // Custom breakpoint
+        breakpoint: 600,
+        view: {
+          calendar: { labels: true },
+        },
+      },
+    }),
+    []
+  );
 
   useEffect(() => {
     getJson(
@@ -37,23 +58,25 @@ function App() {
 
   return (
     <>
-      <Eventcalendar
-        clickToCreate={false}
-        dragToCreate={false}
-        dragToMove={false}
-        dragToResize={false}
-        eventDelete={false}
-        data={myEvents}
-        view={myView}
-        onEventClick={handleEventClick}
-      />
-      <Toast
-        message={toastText}
-        isOpen={isToastOpen}
-        onClose={handleToastClose}
-      />
+      <Header />
+      <div style={{ padding: "30px" }}>
+        <Eventcalendar
+          clickToCreate={false}
+          dragToCreate={false}
+          dragToMove={false}
+          dragToResize={false}
+          eventDelete={false}
+          data={myEvents}
+          view={myView}
+          responsive={myResponsive}
+          onEventClick={handleEventClick}
+        />
+        <Toast
+          message={toastText}
+          isOpen={isToastOpen}
+          onClose={handleToastClose}
+        />
+      </div>
     </>
   );
 }
-
-export default App;
