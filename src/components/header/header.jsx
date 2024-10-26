@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/CampusSync-Logo.png";
 import SidebarMenu from "../menu/menu";
 import { DeleteUserLocalStorage } from "../../util/auth/local-storage";
+import Menu from "../menu/menu";
 
 export default function Header() {
   const router = useNavigate();
@@ -61,6 +62,7 @@ export default function Header() {
         <div>
           <SidebarMenu links={links} />
         </div>
+        <Menu />
         <div className={styles.header_logo_title}>
           <img src={logo} className={styles.header_logo} alt="logo" />
           <div className={styles.header_title}>CampusSync</div>

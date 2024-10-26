@@ -17,7 +17,7 @@ export default function StudentEnrol() {
 
   return (
     <>
-      <Menu />
+      {/* <Menu /> */}
       <div className={styles.container}>
         <div className={styles.heading}>Student Enrollment Details</div>
         <div className={styles.flex_container}>
